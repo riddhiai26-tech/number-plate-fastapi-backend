@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      ALLOWED_ORIGINS: "http://localhost:5173"
+      DEVICE: "cpu"
+      MODEL_PATH: "/app/models/best_license_plate_model.pt"
+      IMAGE_SIZE: "320"
+      CONFIDENCE_THRESHOLD: "0.25"
+      MAX_UPLOAD_MB: "10"
+    restart: unless-stopped
